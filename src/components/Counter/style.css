@@ -1,0 +1,8 @@
+.coutnWrapper {
+	color: white;
+	display: flex;
+	width: 100%;
+}
+.count {
+	color: white;
+}
