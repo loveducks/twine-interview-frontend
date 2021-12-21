@@ -10,7 +10,6 @@ export function setLocalStorage(key, value) {
 export function getLocalStorage(key, initialValue) {
 	try {
 		const value = window.localStorage.getItem(key)
-		console.log("test", value)
 		return value ? JSON.parse(value) : initialValue
 	} catch (e) {
 		// if error, return initial value
