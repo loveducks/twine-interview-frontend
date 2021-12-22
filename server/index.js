@@ -8,6 +8,6 @@ const app = express()
 app.use(bodyParser.urlencoded({extended: false}))
 // parse application/json
 app.use(express.json())
-app.get("/employees", employee)
+app.use("/", employee)
 
 app.listen(process.env.PORT, () => console.log(`server listening on port ${process.env.PORT}`))

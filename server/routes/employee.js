@@ -29,7 +29,7 @@ router.get("/employees", async (req, res) => {
 				rehire_eligible
 			}
 		})
-		if (employees.count) res.json({data: employees.rows})
+		if (employees.count) res.status(200).json({data: employees.rows})
 		else res.status(404).json({data: [], message: "No results found"})
 	} catch (err) {
 		console.log(err)

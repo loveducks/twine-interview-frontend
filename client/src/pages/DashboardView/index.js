@@ -43,7 +43,7 @@ const DashboardView = () => {
 		_fetchData(active)
 	}, [active])
 
-	const tabs = ["Rehire Eligible", "Rehire Ineligible", "Rehire Unknown"]
+	const tabs = ["Rehire Eligible", "Rehire Inelligible", "Rehire Unknown"]
 
 	return (
 		<div>
@@ -61,7 +61,8 @@ const DashboardView = () => {
 									<Row justify='center'>
 										<Spin spinning={loading} />
 									</Row>
-									<DataContext.Provider value={{data, loading}}>
+									{/* keep track of tabs */}
+									<DataContext.Provider value={{data, loading, active}}>
 										<Employers />
 									</DataContext.Provider>
 								</TabPane>

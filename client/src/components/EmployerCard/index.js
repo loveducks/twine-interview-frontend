@@ -1,11 +1,12 @@
-import React, {useState} from "react"
+import React, {useContext, useState} from "react"
 import {Card, Avatar, Modal, Row, Col, Typography, Divider, Input, Button} from "antd"
 // component
 import EmployerModal from "components/EmployerModal"
 // context
-import {EmployeeContext} from "context/CombinedContext"
+import {EmployeeContext, DataContext} from "context/CombinedContext"
 // styles
 import "./style.css"
+import DisplayPic from "components/DisplayPic"
 
 const {Meta} = Card
 
@@ -13,15 +14,14 @@ const EmployerCard = props => {
 	const [visible, setVisible] = useState(false)
 	const [employee, setEmployee] = useState(props.employee)
 
-	const {name, position, voluntary} = employee
-	const avatar = () => <Avatar style={{backgroundColor: voluntary ? "#8dd7cf" : "#e9a2ad"}} shape={"square"} />
+	const {name, position} = employee
 
 	const namePos = name + ", " + position
 
 	return (
 		<>
-			<Meta avatar={avatar()} title={namePos} onClick={() => setVisible(true)} />
 			<EmployeeContext.Provider value={{employee, visible, setVisible}}>
+				<Meta avatar={<DisplayPic />} title={namePos} onClick={() => setVisible(true)} />
 				<EmployerModal />
 			</EmployeeContext.Provider>
 		</>

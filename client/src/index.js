@@ -9,11 +9,9 @@ import "./index.css"
 import "antd/dist/antd.css"
 
 ReactDOM.render(
-	<React.StrictMode>
-		<Router>
-			<App />
-		</Router>
-	</React.StrictMode>,
+	<Router>
+		<App />
+	</Router>,
 	document.getElementById("root")
 )
 

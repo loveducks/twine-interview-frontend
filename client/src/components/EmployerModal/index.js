@@ -1,7 +1,9 @@
 import React, {useContext, useState} from "react"
 import {Avatar, Modal, Row, Col, Typography, Input, Button, message} from "antd"
+// components
+import DisplayPic from "components/DisplayPic"
 // context
-import {EmployeeContext} from "context/CombinedContext"
+import {DataContext, EmployeeContext} from "context/CombinedContext"
 // styles
 import "./style.css"
 
@@ -9,23 +11,24 @@ const {Link, Text} = Typography
 
 const EmployerModal = () => {
 	const {employee, visible, setVisible} = useContext(EmployeeContext)
+	const {active} = useContext(DataContext)
 
 	const [body, setBody] = useState("")
 	const [error, setError] = useState(false)
 
 	const {name, position, rehire_eligible, voluntary, profile_link, termination_reason} = employee
-	const avatar = () => <Avatar style={{backgroundColor: voluntary ? "#8dd7cf" : "#e9a2ad"}} shape={"square"} />
 
 	const namePos = name + ", " + position
 	const showSubmit = rehire_eligible && voluntary
 
 	const success = () => {
-		message.success("Email Sent")
+		message.success("Email Sent (No api calls here)")
 	}
 
 	const _handleSubmit = async () => {
 		if (body.trim() === "") {
 			setError(true)
+			// sleep for 2 seconds
 			await new Promise(r => setTimeout(r, 2000))
 			setError(false)
 		} else {
@@ -42,7 +45,9 @@ const EmployerModal = () => {
 			footer={null}
 			bodyStyle={{height: showSubmit ? 300 : 200}}>
 			<Row justify='start' className='ant-card-meta' gutter={[15, 25]}>
-				<Col>{avatar()}</Col>
+				<Col>
+					<DisplayPic />
+				</Col>
 				<Col>
 					<div>{namePos}</div>
 				</Col>
