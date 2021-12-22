@@ -3,7 +3,7 @@ import {Row, Col, Button, Typography, Divider} from "antd"
 import {CaretDownFilled, CaretUpFilled, EditFilled, DeleteFilled, PlusOutlined} from "@ant-design/icons"
 
 // context
-import {CounterContext} from "../../context/CounterContext"
+import {CounterContext} from "../../context/CombinedContext"
 
 // style
 import "./style.css"

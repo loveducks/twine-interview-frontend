@@ -3,7 +3,7 @@ import {Layout, Menu} from "antd"
 import {useHistory} from "react-router-dom"
 
 // context
-import {CounterContext} from "../context/CounterContext"
+import {CounterContext} from "../context/CombinedContext"
 
 // components
 import Counter from "../components/Counter"
